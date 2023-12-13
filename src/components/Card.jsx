@@ -1,7 +1,7 @@
 
 import "../styles/Card.css"
 
-export const Card = ({idFind, image, selectIdCard, idCardSelected, setIdCardDone, setCards}) => {
+export const Card = ({idFind, image, selectIdCard, idCardSelected, setIdCardDone, }) => {
 
     const handleSelectClick = (idFind) => {
 
@@ -14,7 +14,11 @@ export const Card = ({idFind, image, selectIdCard, idCardSelected, setIdCardDone
                 selectIdCard()
             } else {
                 alert("No coindice")
-            } 
+            }
+            
+            selectIdCard()
+
+            
         }else{
             selectIdCard(idFind)
             console.log(idCardSelected);
