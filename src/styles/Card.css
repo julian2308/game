@@ -19,7 +19,7 @@ body{
 }
 
 .container{
-    background-image:"images/Annie1.jpeg";
+    background-color:red;
     padding: 10px;
     height: 18vh;
     width: 20vw;
