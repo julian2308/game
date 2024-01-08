@@ -3,23 +3,26 @@ import { Card } from "./components/Card";
 
 function App() {
 
-  const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
+  function shuffleArray(array) {
+    const shuffledArray = [...array]; 
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+      
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
     }
+    return shuffledArray; 
   }
 
   const initialCards = [
     {
       id: 1,
       idFind: 1,
-      image: "images/Annie1.jpeg",
+      image: "",
     },
     {
       id: 2,
       idFind: 1,
-      image: "images/Annie1.jpeg",
+      image: "",
     },
     {
       id: 3,
@@ -73,6 +76,8 @@ function App() {
     },
   ];
 
+  
+  const [cardsToRender, setCardsToRender] = useState(shuffleArray(initialCards));
   const [idCardSelected, setIdCardSelected] = useState();
   const [mainId, setMainId] = useState();
   const [idsCardsDone, setIdsCardsDone] = useState([]);
@@ -80,9 +85,9 @@ function App() {
 
 
 
-  useEffect(() => {
 
-    let modifiedCards = initialCards.map((card) => {
+  useEffect(() => {
+    let modifiedCards = cardsToRender.map((card) => {
       if(idsCardsDone.includes(card.idFind)){
         return {
           id: card.id,
@@ -92,12 +97,8 @@ function App() {
         return card
       }
     })
-
-    shuffleArray(modifiedCards)
-    
-
     setCards(modifiedCards)
-    console.log(modifiedCards);
+
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idsCardsDone])
