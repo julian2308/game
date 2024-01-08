@@ -37,6 +37,7 @@ export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCards
             card.idFind !== 0 ? 
             <div className="container" onClick={() => handleSelectClick(card.idFind, card.id)}>
                 <p> soy el numero {card.idFind}</p>
+               
             </div>: 
             <div className="invisible-container">soy invisble</div>
         }   

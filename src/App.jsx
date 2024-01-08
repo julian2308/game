@@ -10,7 +10,7 @@ function App() {
     }
   }
 
-  const initialCards = [
+  let mainCards = [
     {
       id: 1,
       idFind: 1,
@@ -76,7 +76,23 @@ function App() {
   const [idCardSelected, setIdCardSelected] = useState();
   const [mainId, setMainId] = useState();
   const [idsCardsDone, setIdsCardsDone] = useState([]);
+  const [initialCards, setInitialCards] = useState(mainCards)
   const [cards, setCards] = useState(initialCards);
+
+  useEffect(() => {
+    let modifiedCards = initialCards.map((card) => {
+      if(idsCardsDone.includes(card.idFind)){
+        return {
+          id: card.id,
+          idFind:0
+        }
+      } else{
+        return card
+      }
+    })
+
+    shuffleArray(modifiedCards);
+  })
 
 
 
@@ -93,9 +109,8 @@ function App() {
       }
     })
 
-    shuffleArray(modifiedCards)
-    
-
+  
+    setInitialCards(modifiedCards)
     setCards(modifiedCards)
     console.log(modifiedCards);
     
