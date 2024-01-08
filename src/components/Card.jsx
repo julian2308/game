@@ -1,38 +1,46 @@
 
 import "../styles/Card.css"
 
-export const Card = ({idFind, image, selectIdCard, idCardSelected, setIdCardDone, }) => {
+export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCardsDone, mainId, setMainId }) => {
 
-    const handleSelectClick = (idFind) => {
+   
 
-
+    const handleSelectClick = (idCouple, id) => {
+       
         if(idCardSelected){
+            console.log("este es el main id", mainId);
+            if(idCardSelected === idCouple){
 
-            if(idCardSelected === idFind){
-                alert("Coincide")
-                setIdCardDone((prevIdsCards) => [...prevIdsCards, idFind])
-                selectIdCard()
+                if(mainId !== id){
+                    alert("Coincide")
+                    setIdCardsDone((prevIdsCards) => [...prevIdsCards, idCouple])
+                    setIdCardSelected()
+                } else{
+                    alert("es la misma carta")
+                }
             } else {
                 alert("No coindice")
-            }
-            
-            selectIdCard()
-
-            
+            } 
+            setIdCardSelected()            
         }else{
-            selectIdCard(idFind)
+            setIdCardSelected(idCouple)
+            setMainId(id)
             console.log(idCardSelected);
         }
-
     }
 
 
 
     return(
-        <div className="container" onClick={() => handleSelectClick(idFind)}>
-            <div>
-                Carta con id {idFind}
-            </div>
+        <div>
+        {
+            card.idFind !== 0 ? 
+            <div className="container" onClick={() => handleSelectClick(card.idFind, card.id)}>
+                <img src="./images/Annie1.jpeg"/>
+            </div>: 
+            <div className="invisible-container">soy invisble</div>
+        }   
         </div>
+        
     )
 }

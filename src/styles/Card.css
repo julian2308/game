@@ -1,9 +1,37 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.main-container{
+    background-color: green;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards-container{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .container{
-    background-color: red;
+    background-image:"images/Annie1.jpeg";
     padding: 10px;
-    height: 10vh;
-    width: 10vw;
-    margin-top: 10px;
+    height: 18vh;
+    width: 20vw;
     cursor: pointer;
+    margin: 10px;
+}
+
+.invisible-container{
+    padding: 10px;
+    height: 18vh;
+    width: 20vw;
+
+    margin: 10px;
 }
 
