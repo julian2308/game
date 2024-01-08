@@ -1,9 +1,11 @@
 
+import { useState } from "react";
 import "../styles/Card.css"
 
-export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCardsDone, mainId, setMainId }) => {
+export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCardsDone, mainId, setMainId, idsCardsDone }) => {
 
    
+    const [isSelected, setIsSelected] = useState(false);
 
     const handleSelectClick = (idCouple, id) => {
        
@@ -16,6 +18,7 @@ export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCards
                     setIdCardsDone((prevIdsCards) => [...prevIdsCards, idCouple])
                     setIdCardSelected()
                 } else{
+                    setIsSelected(false)
                     alert("es la misma carta")
                 }
             } else {
@@ -23,6 +26,8 @@ export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCards
             } 
             setIdCardSelected()            
         }else{
+
+            setIsSelected(true)
             setIdCardSelected(idCouple)
             setMainId(id)
             console.log(idCardSelected);
@@ -36,7 +41,11 @@ export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCards
         {
             card.idFind !== 0 ? 
             <div className="container" onClick={() => handleSelectClick(card.idFind, card.id)}>
-                <p> soy el numero {card.idFind}</p>
+                {
+                    isSelected ? 
+                    <img src={image}/> : null
+                }
+
             </div>: 
             <div className="invisible-container">soy invisble</div>
         }   

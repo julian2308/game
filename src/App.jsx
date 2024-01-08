@@ -17,62 +17,62 @@ function App() {
     {
       id: 1,
       idFind: 1,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie1.jpeg",
     },
     {
       id: 2,
       idFind: 1,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie1.jpeg",
     },
     {
       id: 3,
       idFind: 2,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie2.jpeg",
     },
     {
       id: 4,
       idFind: 2,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie2.jpeg",
     },
     {
       id: 5,
       idFind: 3,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie3.jpeg",
     },
     {
       id: 6,
       idFind: 3,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie3.jpeg",
     },
     {
       id: 7,
       idFind: 4,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie4.jpeg",
     },
     {
       id: 8,
       idFind: 4,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie4.jpeg",
     },
     {
       id: 9,
       idFind: 5,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie5.jpeg",
     },
     {
       id: 10,
       idFind: 5,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie5.jpeg",
     },
     {
       id: 11,
       idFind: 6,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie6.jpeg",
     },
     {
       id: 12,
       idFind: 6,
-      image: "",
+      image: "https://raw.githubusercontent.com/julian2308/game/master/images/Annie6.jpeg",
     },
   ];
 
@@ -82,8 +82,6 @@ function App() {
   const [mainId, setMainId] = useState();
   const [idsCardsDone, setIdsCardsDone] = useState([]);
   const [cards, setCards] = useState(initialCards);
-
-
 
 
   useEffect(() => {
@@ -110,11 +108,13 @@ function App() {
           return (
             <Card
               card={card}
+              image={card.image}
               setIdCardSelected={setIdCardSelected}
               idCardSelected={idCardSelected}
               mainId={mainId}
               setMainId={setMainId}
               setIdCardsDone={setIdsCardsDone}
+              idsCardsDone = {idsCardsDone}
               setCards = {setCards}
               key={card.id}
             />
