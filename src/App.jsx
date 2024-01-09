@@ -76,7 +76,7 @@ function App() {
     },
   ];
 
-  
+  const [backgroundImage, setBackgroundImage] = useState(`url(../../images/Morat.jpg)`)
   const [cardsToRender, setCardsToRender] = useState(shuffleArray(initialCards));
   const [idCardSelected, setIdCardSelected] = useState();
   const [mainId, setMainId] = useState();
@@ -97,6 +97,10 @@ function App() {
     })
     setCards(modifiedCards)
 
+
+    if(idsCardsDone.length === 6){
+      alert("siuuu");
+    }
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idsCardsDone])
@@ -104,7 +108,7 @@ function App() {
   return (
 
  
-    <div className="main-container">
+    <div className="main-container" style={{ backgroundImage: `url("https://via.placeholder.com/500")` }}> 
       <div className="cards-container">
       
         

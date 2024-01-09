@@ -62,7 +62,7 @@ export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCards
 
             </div>: 
 
-            <div className="invisible-container">soy invisble</div>
+            <div className="invisible-container"></div>
         }   
         </div>
         

@@ -4,7 +4,10 @@ body{
 }
 
 .main-container{
-    background-color: green;
+    background-image:url(../../images/Morat.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -13,14 +16,17 @@ body{
 }
 
 .cards-container{
-    width: 90%;
+    width: 84.17%;
     display: flex;
     flex-wrap: wrap;
 }
 
 .container{
-    background-color:red;
-    height: 18vh;
+    background-image:url(../../images/Interrogacion.jpeg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 30vh;
     width: 20vw;
     cursor: pointer;
     margin: 10px;
@@ -28,11 +34,10 @@ body{
 }
 
 .invisible-container{
-    height: 18vh;
+    height: 30vh;
     width: 20vw;
     margin: 10px;
     border-radius: 40px;
-    background-color: black;
 }
 
 img{
