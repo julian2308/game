@@ -102,8 +102,13 @@ function App() {
   }, [idsCardsDone])
 
   return (
+
+ 
     <div className="main-container">
       <div className="cards-container">
+      
+        
+      
         {cards.map((card) => {
           return (
             <Card

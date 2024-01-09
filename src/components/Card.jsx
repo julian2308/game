@@ -1,10 +1,12 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/Card.css"
 
-export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCardsDone, mainId, setMainId, idsCardsDone }) => {
+export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCardsDone, mainId, setMainId }) => {
 
-   
+
+   useEffect(() => {})
+
     const [isSelected, setIsSelected] = useState(false);
 
     const handleSelectClick = (idCouple, id) => {
@@ -15,18 +17,29 @@ export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCards
 
                 if(mainId !== id){
                     alert("Coincide")
-                    setIdCardsDone((prevIdsCards) => [...prevIdsCards, idCouple])
-                    setIdCardSelected()
+                    setIsSelected(true)
+                    setTimeout(() => {
+                        setIdCardsDone((prevIdsCards) => [...prevIdsCards, idCouple])
+                        setIdCardSelected()   
+                    }, 1000);
+                    
+                    
+
                 } else{
                     setIsSelected(false)
-                    alert("es la misma carta")
+                    setMainId(99);
                 }
             } else {
-                alert("No coindice")
+                //alert("No coindice")
+                setIsSelected(true)
+                setTimeout(() => {
+                    setIsSelected(false);
+                }, 1000);
+                
+                
             } 
             setIdCardSelected()            
         }else{
-
             setIsSelected(true)
             setIdCardSelected(idCouple)
             setMainId(id)
@@ -35,18 +48,20 @@ export const Card = ({card, image, setIdCardSelected, idCardSelected, setIdCards
     }
 
 
-
     return(
         <div>
         {
             card.idFind !== 0 ? 
             <div className="container" onClick={() => handleSelectClick(card.idFind, card.id)}>
                 {
-                    isSelected ? 
+                    
+                    isSelected ?
+
                     <img src={image}/> : null
                 }
 
             </div>: 
+
             <div className="invisible-container">soy invisble</div>
         }   
         </div>
